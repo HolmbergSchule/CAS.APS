@@ -204,6 +204,10 @@ ga('send', 'pageview');
 <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script>
 {% endif %}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js"></script>
+
+<script src="{{site.baseurl}}/assets/js/openlayers.js"></script>
+
 {% if site.mapping.provider %}
     {% case site.mapping.provider %}
         {% when "google_js" %}
