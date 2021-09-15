@@ -38,6 +38,7 @@ jobs:
       - uses:  helaili/jekyll-action@v2
         with:
           build_only: true
+          jekyll_src: '.'
       
       - name: See dirs
         run: ls -la
