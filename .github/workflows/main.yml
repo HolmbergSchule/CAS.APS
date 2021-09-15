@@ -57,6 +57,9 @@ jobs:
       - name: Checkout gh-pages
         run: |
           git branch
+          git config --global user.email "zimcke@gmail.com"
+          git config --global user.name "Zimcke"
+          git stash
           git checkout gh-pages
         
       - name: Copy tmp to .
@@ -70,8 +73,6 @@ jobs:
                
       - name: Commit
         run: |
-          git config --global user.email "zimcke@gmail.com"
-          git config --global user.name "Zimcke"
           git add ./.
           git commit -m "Site updated"
           git push origin gh-pages --force
