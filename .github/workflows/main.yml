@@ -34,7 +34,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
+      
+      - name: Go to directory upwards
+        run: cd ..
+      
+      - name: See dirs
+        run: ls -la
+      
       - name: Make tmp directory
         run: mkdir tmp
         
