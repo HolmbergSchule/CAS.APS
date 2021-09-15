@@ -35,8 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
-      - name: Go to directory upwards
-        run: cd ..
       
       - name: See dirs
         run: ls -la
@@ -46,3 +44,22 @@ jobs:
         
       - name: See dirs
         run: ls -la
+     
+      - name: Copy site files to tmp
+        run: mv _site/* tmp/
+        
+      - name: Checkout gh-pages
+        run: git checkout gh-pages
+        
+      - name: Copy tmp to .
+        run: mv tmp/* .
+        
+      - name: Remove tmp
+        run: rm -rf tmp
+        
+      - name: Commit
+        run: |
+          git add ./.
+          git commit -m "Site updated"
+          git push 
+          git checkout master
