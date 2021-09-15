@@ -35,6 +35,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
+      - uses:  helaili/jekyll-action@v2
+        with:
+          build_only: true
+          jekyll_src: '.'
       
       - name: See dirs
         run: ls -la
@@ -49,17 +53,19 @@ jobs:
         run: mv _site/* tmp/
         
       - name: Checkout gh-pages
-        run: git checkout gh-pages
+        run: git checkout -B gh-pages
         
       - name: Copy tmp to .
-        run: mv tmp/* .
+        run: cp -r tmp/* .
         
       - name: Remove tmp
         run: rm -rf tmp
         
       - name: Commit
         run: |
+          git config --global user.email "zimcke@gmail.com"
+          git config --global user.name "Zimcke"
           git add ./.
           git commit -m "Site updated"
-          git push 
+          git push origin gh-pages --force
           git checkout master
