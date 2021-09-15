@@ -59,7 +59,9 @@ jobs:
           git branch
           git config --global user.email "zimcke@gmail.com"
           git config --global user.name "Zimcke"
+          git add -A 
           git stash
+          git status
           git checkout gh-pages
         
       - name: Copy tmp to .
