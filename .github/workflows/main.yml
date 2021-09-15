@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -53,7 +55,9 @@ jobs:
         run: mv _site/* tmp/
         
       - name: Checkout gh-pages
-        run: git checkout -B gh-pages
+        run: |
+          git branch
+          git checkout gh-pages
         
       - name: Copy tmp to .
         run: cp -r tmp/* .
