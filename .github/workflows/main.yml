@@ -59,8 +59,11 @@ jobs:
         run: cp -r tmp/* .
         
       - name: Remove tmp
-        run: rm -rf tmp
-        
+        run: |
+          rm -rf tmp
+          rm -rf _*
+          rm -f _config*
+               
       - name: Commit
         run: |
           git config --global user.email "zimcke@gmail.com"
