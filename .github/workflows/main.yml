@@ -35,6 +35,9 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
+      - uses:  helaili/jekyll-action@v2
+        with:
+          build_only: true
       
       - name: See dirs
         run: ls -la
