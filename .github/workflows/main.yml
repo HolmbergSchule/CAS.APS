@@ -63,5 +63,5 @@ jobs:
           git config --global user.name "Zimcke"
           git add ./.
           git commit -m "Site updated"
-          git push 
+          git push origin gh-pages
           git checkout master
