@@ -13,7 +13,7 @@ jobs:
           persist-credentials: false
       - name: remove all files # remove files.
         run: |
-          rm -rf *
+          sudo rm -rf *
       - name: checkout master branch #checkout master branch into temp folder.
         uses: actions/checkout@v2
         with:
@@ -31,8 +31,8 @@ jobs:
 #           npm build
       - name: move files # move the dist files into root dir and remove others.
         run: |
-          mv temp/_site/* ./
-          rm -rf temp
+          sudo mv temp/_site/* ./
+          sudo rm -rf temp
       - name: Commit files for change # commit changes
         run: |
           git config --local user.email "action@github.com"
