@@ -64,15 +64,15 @@ section.recent-posts {
 }
 
 .section-title h2 {
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    /* border-bottom: 1px solid rgba(0, 0, 0, .125); */
     margin-bottom: 25px;
-    font-weight: 700;
-    font-size: 1.4rem;
+    /*font-weight: 700;*/
+    font-size: 2rem;
     margin-bottom: 27px;
 }
 
 .section-title span {
-    border-bottom: 1px solid rgba(0, 0, 0, .44);
+    /* border-bottom: 1px solid rgba(0, 0, 0, .44); */
     display: inline-block;
     padding-bottom: 20px;
     margin-bottom: -1px;
@@ -300,12 +300,13 @@ span.post-read-more a:hover {
 }
 
 .mediumnavigation .navbar-brand img {
-    max-height: 30px;
+    max-height: 50px;
     margin-right: 5px;
 }
 
 .mainheading h1.sitetitle {
     font-family: Ubuntu;
+    color: #2B6242;
 }
 
 .mainheading h1.posttitle {
@@ -686,6 +687,16 @@ h4,
 h5,
 h6 {
     font-family: Ubuntu, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #2B6242;
+}
+
+.mk-fancy-title.pattern-style {
+    background: url(../images/fancy-title-pattern.png) left center repeat-x;
+}
+
+.mk-fancy-title span {
+    background-color: #FFFFFF;
+    padding-right: 8px;
 }
 
 .article-post .h1,

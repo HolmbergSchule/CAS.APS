@@ -1,9 +1,9 @@
 # Site
-name: "Sarita's project"
-title: "Sarita's project"
-description: "Project page with a map on top and an overview of all projects below."
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/logo.png'
+name: "Creatividad Actividad Servicio"
+title: "CAS.APS"
+description: "Alemán proyecto solidario"
+logo: 'assets/images/logo-holmberg.png'
+favicon: 'assets/images/favicon.png'
 baseurl: '/CAS.APS'
 google_analytics: 'UA-46278016-1'
 disqus: 'demowebsite'
