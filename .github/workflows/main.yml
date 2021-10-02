@@ -1,81 +1,129 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  job1:
+    runs-on: [ubuntu-latest]
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: checkout gh-pages branch # checkout gh-pages branch
+        uses: actions/checkout@v2
         with:
-          fetch-depth: 0
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+          persist-credentials: false
+      - name: remove all files # remove files.
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      
-      - uses:  helaili/jekyll-action@v2
+          sudo rm -rf *
+      - name: checkout master branch #checkout master branch into temp folder.
+        uses: actions/checkout@v2
+        with:
+          path: temp
+          persist-credentials: false
+      - name: build Jekyll site
+        uses:  helaili/jekyll-action@v2
         with:
           build_only: true
-          jekyll_src: '.'
+          jekyll_src: './temp/'    
+          
+#       - name: run npm build # go to temp folder and run npm build to create files.
+#         run: |
+#           cd temp
+#           npm build
+      - name: move files # move the dist files into root dir and remove others.
+        run: |
+          sudo mv temp/_site/* ./
+          sudo rm -rf temp
+      - name: Commit files for change # commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Add changes"
+      - name: Push changes #push files into gh-pages branch
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+          branch: gh-pages
+
+# This is a basic workflow to help you get started with Actions
+
+# name: CI
+
+# # Controls when the workflow will run
+# on:
+#   # Triggers the workflow on push or pull request events but only for the master branch
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
+
+# # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# jobs:
+#   # This workflow contains a single job called "build"
+#   build:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
+
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       - uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+
+#       # Runs a single command using the runners shell
+#       - name: Run a one-line script
+#         run: echo Hello, world!
+
+#       # Runs a set of commands using the runners shell
+#       - name: Run a multi-line script
+#         run: |
+#           echo Add other actions to build,
+#           echo test, and deploy your project.
       
-      - name: See dirs
-        run: ls -la
+#       - uses:  helaili/jekyll-action@v2
+#         with:
+#           build_only: true
+#           jekyll_src: '.'
       
-      - name: Make tmp directory
-        run: mkdir tmp
+#       - name: See dirs
+#         run: ls -la
+      
+#       - name: Make tmp directory
+#         run: mkdir tmp
         
-      - name: See dirs
-        run: ls -la
+#       - name: See dirs
+#         run: ls -la
      
-      - name: Copy site files to tmp
-        run: mv _site/* tmp/
+#       - name: Copy site files to tmp
+#         run: mv _site/* tmp/
         
-      - name: Checkout gh-pages
-        run: |
-          git branch
-          git config --global user.email "zimcke@gmail.com"
-          git config --global user.name "Zimcke"
-          git add -A 
-          git stash
-          git status
-          git checkout gh-pages
+#       - name: Checkout gh-pages
+#         run: |
+#           git branch
+#           git config --global user.email "zimcke@gmail.com"
+#           git config --global user.name "Zimcke"
+#           git add -A 
+#           git stash
+#           git status
+#           git checkout gh-pages
         
-      - name: Copy tmp to .
-        run: cp -r tmp/* .
+#       - name: Copy tmp to .
+#         run: cp -r tmp/* .
         
-      - name: Remove tmp
-        run: |
-          rm -rf tmp
-          rm -rf _*
-          rm -f _config*
+#       - name: Remove tmp
+#         run: |
+#           rm -rf tmp
+#           rm -rf _*
+#           rm -f _config*
                
-      - name: Commit
-        run: |
-          git add ./.
-          git commit -m "Site updated"
-          git push origin gh-pages --force
-          git checkout master
+#       - name: Commit
+#         run: |
+#           git add ./.
+#           git commit -m "Site updated"
+#           git push origin gh-pages --force
+#           git checkout master
