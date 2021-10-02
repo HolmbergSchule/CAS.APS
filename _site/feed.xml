@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sarita's project</title>
-    <description>Project page with a map on top and an overview of all projects below.</description>
+    <title>CAS.APS</title>
+    <description>Alemán proyecto solidario</description>
     <link>/CAS.APS/</link>
     <atom:link href="/CAS.APS/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Oct 2021 14:36:15 +0200</pubDate>
-    <lastBuildDate>Sat, 02 Oct 2021 14:36:15 +0200</lastBuildDate>
+    <pubDate>Sat, 02 Oct 2021 15:22:21 +0200</pubDate>
+    <lastBuildDate>Sat, 02 Oct 2021 15:22:21 +0200</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
