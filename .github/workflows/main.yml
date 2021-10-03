@@ -25,7 +25,6 @@ jobs:
           build_only: false
           jekyll_src: './temp/'
           target_branch: gh-pages
-          target_path: /
           token: ${{ secrets.GITHUB_TOKEN }}
           
 #       - name: move files # move the dist files into root dir and remove others.
