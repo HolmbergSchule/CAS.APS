@@ -4,6 +4,7 @@ title: "CAS.APS"
 description: "Alemán proyecto solidario"
 logo: 'assets/images/logo-holmberg.png'
 favicon: 'assets/images/favicon.png'
+url: 'https://holmbergschule.github.io'
 baseurl: '/CAS.APS'
 google_analytics: 'UA-46278016-1'
 disqus: 'demowebsite'
