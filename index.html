@@ -26,8 +26,25 @@ title: Home
 
     <div class="section-title">
 
-        <h2><span>All Projects</span></h2>
+        <h2 class="mk-fancy-title pattern-style"><span>All Projects</span></h2>
 
+    </div>
+    <div class="row jumbotron fortags">
+        <div class="d-md-flex">
+            <div class="col-md-12 mb-2 align-self-center text-center">
+                {% assign categories_list = site.categories %}
+                {% if categories_list.first[0] == null %}
+                    {% for category in categories_list %}
+                        <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a>
+                    {% endfor %}
+                {% else %}
+                    {% for category in categories_list %}
+                        <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a>
+                    {% endfor %}
+                {% endif %}
+                {% assign categories_list = nil %}
+            </div>
+        </div>
     </div>
 
     <div class="row listrecent">
