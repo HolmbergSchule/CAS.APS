@@ -130,6 +130,12 @@ section.recent-posts {
 .nav-item:hover{
     background-color: #006241;
     color: #ffffff!important;
+    cursor: pointer;
+}
+
+.nav-item.active{
+    background-color: #006241;
+    color: #ffffff!important;
 }
 
 #navbar-container{
@@ -143,6 +149,20 @@ section.recent-posts {
 .nav-item {
     display: flex;
     align-items: center;
+}
+
+.nav-item:hover a {
+    color: #FFF!important;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    color: #006241!important;
+    font-weight: 700;
+}
+
+.nav-item.active > .nav-link{
+    color: #FFF!important;
 }
 
 .nav-link:hover {
@@ -795,7 +815,7 @@ img {
     text-align: center;
     margin-bottom: 0rem;
     color: #999;
-    border-top: 1px solid #ddd;
+    border-top: 3px solid #F2D12D;
 }
 
 .pointerup {
@@ -871,7 +891,7 @@ iframe {
     border-radius: 30px;
     border-color: #1C9963;
     border-style: solid;
-    color: #1C9963;
+    color: #2B6242;
     font-weight: 500;
     text-transform: lowercase;
     font-size: 0.8rem;
@@ -974,4 +994,17 @@ iframe {
 #jekyll-mapping {
     border-color: #1C9963;
     border-style: solid;
+}
+
+#lunrsearch {
+    /*padding: 5px 10px 7px;*/
+    background: #F2D12D;
+    border-radius: 10px;
+    border-color: #1C9963;
+    border-style: solid;
+    border-width: 3px;
+    color: #2B6242!important;
+    font-weight: 500;
+    text-transform: lowercase;
+    /*display: inline-block;*/
 }
