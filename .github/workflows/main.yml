@@ -22,7 +22,7 @@ jobs:
       - name: build Jekyll site
         uses:  helaili/jekyll-action@v2
         with:
-          build_only: true
+          build_only: false
           jekyll_src: './temp/'
           target_branch: gh-pages
           target_path: /
