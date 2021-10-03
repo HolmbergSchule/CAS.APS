@@ -23,7 +23,8 @@ jobs:
         uses:  helaili/jekyll-action@v2
         with:
           build_only: true
-          jekyll_src: './temp/'    
+          jekyll_src: './temp/'
+          target_path: './temp/_site/'
           
 #       - name: run npm build # go to temp folder and run npm build to create files.
 #         run: |
