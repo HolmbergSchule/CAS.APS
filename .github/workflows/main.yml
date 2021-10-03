@@ -22,29 +22,27 @@ jobs:
       - name: build Jekyll site
         uses:  helaili/jekyll-action@v2
         with:
-          build_only: true
-          jekyll_src: './temp/'    
+          build_only: false
+          jekyll_src: './temp/'
+          target_branch: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
           
-#       - name: run npm build # go to temp folder and run npm build to create files.
+#       - name: move files # move the dist files into root dir and remove others.
 #         run: |
-#           cd temp
-#           npm build
-      - name: move files # move the dist files into root dir and remove others.
-        run: |
-          sudo mv temp/_site/* ./
-          sudo rm -rf temp
-      - name: Commit files for change # commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Add changes"
-      - name: Push changes #push files into gh-pages branch
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
-          branch: gh-pages
+#           sudo mv temp/_site/* ./
+#           sudo rm -rf temp
+#       - name: Commit files for change # commit changes
+#         run: |
+#           git config --local user.email "action@github.com"
+#           git config --local user.name "GitHub Action"
+#           git add .
+#           git commit -m "Add changes"
+#       - name: Push changes #push files into gh-pages branch
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           force: true
+#           branch: gh-pages
 
 # This is a basic workflow to help you get started with Actions
 
