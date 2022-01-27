@@ -1,1 +1,1 @@
-Sitemap: /CAS.APS/sitemap.xml
+Sitemap: http://localhost:4000/CAS.APS/sitemap.xml

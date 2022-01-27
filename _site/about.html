@@ -15,9 +15,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Alemán proyecto solidario" />
 <meta property="og:description" content="Alemán proyecto solidario" />
+<link rel="canonical" href="http://localhost:4000/CAS.APS/about" />
+<meta property="og:url" content="http://localhost:4000/CAS.APS/about" />
 <meta property="og:site_name" content="CAS.APS" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"About","url":"/CAS.APS/about","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/CAS.APS/assets/images/logo-holmberg.png"}},"description":"Alemán proyecto solidario","@context":"http://schema.org"}</script>
+{"@type":"WebPage","headline":"About","url":"http://localhost:4000/CAS.APS/about","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/CAS.APS/assets/images/logo-holmberg.png"}},"description":"Alemán proyecto solidario","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -46,7 +48,7 @@
 ================================================== -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
 
-    <div class="container pr-0">
+    <div id="navbar-container" class="container pr-0">
 
     <!-- Begin Logo -->
     <a class="navbar-brand" href="/CAS.APS/">
@@ -67,15 +69,25 @@
                 
                 <li class="nav-item">
                 
-                <a class="nav-link" href="/CAS.APS/index.html">Blog</a>
+                <a class="nav-link" href="/CAS.APS/index.html">Home</a>
                 </li>
 
-                <li class="nav-item">
+                
+                <li class="nav-item active">
+                
                 <a class="nav-link" href="/CAS.APS/about">About</a>
                 </li>
 
+                
                 <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                
+                <a class="nav-link" href="/CAS.APS/press">Press</a>
+                </li>
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/CAS.APS/contact">Contact</a>
                 </li>
 
                 <script src="/CAS.APS/assets/js/lunr.js"></script>
@@ -90,7 +102,7 @@
 </style>
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+<form class="bd-search ml-2" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
     <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
 </form>
 
@@ -210,7 +222,7 @@
 
 <!-- Categories Jumbotron
 ================================================== -->
-<div class="jumbotron fortags">
+<!-- <div class="jumbotron fortags">
 	<div class="d-md-flex h-100">
 		<div class="col-md-4 transpdark align-self-center text-center h-100">
             <div class="d-md-flex align-items-center justify-content-center h-100">
@@ -221,9 +233,9 @@
             
             
                 
-                    <a class="mt-1 mb-1" href="/CAS.APS/categories#Jekyll">Jekyll (14)</a>
+                    <a class="mt-1 mb-1" href="/CAS.APS/categories#Jekyll">Jekyll (3)</a>
                 
-                    <a class="mt-1 mb-1" href="/CAS.APS/categories#tutorial">tutorial (12)</a>
+                    <a class="mt-1 mb-1" href="/CAS.APS/categories#tutorial">tutorial (3)</a>
                 
                     <a class="mt-1 mb-1" href="/CAS.APS/categories#web-development">web development (1)</a>
                 
@@ -231,7 +243,7 @@
             
 		</div>
 	</div>
-</div>
+</div> -->
 
 <!-- Begin Footer
 ================================================== -->
@@ -239,10 +251,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © 2021 Creatividad Actividad Servicio 
+                Copyright © 2022 Creatividad Actividad Servicio 
             </div>
             <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+                <!-- <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net -->
             </div>
         </div>
     </div>

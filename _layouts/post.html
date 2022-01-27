@@ -22,24 +22,68 @@ post_class: post-template
             <div class="mainheading">
 
                 <!-- Author Box -->
-                {% if page.author %}
                 <div class="row post-top-meta">
-                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
-                        {% if author.avatar %}
-                        <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                        {% else %}
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                        {% endif %}
+
+                    {% if page.organization %}
+                    <div class="col-xs-12 col-md-4 col-lg-4 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <div class="row">
+                            <p><b>Organization</b></p>
+                        </div>
+                        <div class="row">
+                            <p>{{ page.organization.name }}</p>
+                        </div>
+
+                        <div class="row">    
+                            <img class="img-fluid" src="{{site.baseurl}}/{{ page.organization.logo }}" alt="{{ page.organization.name }}">
+                        </div>
+
                     </div>
-                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
+                    {% endif %}
+
+                    {% if page.author %}
+                    <div class="col-xs-12 col-md-8 col-lg-8 text-center text-md-left">
+                        <div class="row">
+                            <p><b>Author</b></p>
+                        </div>
+                        <div class="row">
+                            <a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a>
+                        <!-- <a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a> -->
                         <span class="author-description">{{ author.description }}</span>
+                        </div>
                     </div>
+                    {% endif %}
                 </div>
-                {% endif %}
+                
 
                 <!-- Post Title -->
                 <h1 class="posttitle">{{ page.title }}</h1>
+
+                <!-- Post Categories -->
+                <div class="after-post-cats">
+                    <ul class="tags mb-4">
+                        {% assign sortedCategories = page.categories | sort %}
+                        {% for category in sortedCategories %}
+                        <li>
+                            <a class="smoothscroll" href="{{site.baseurl}}/categories#{{ category | replace: " ","-" }}">{{ category }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- End Categories -->
+
+                <!-- Post Tags -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        {% assign sortedTags = page.tags | sort %}
+                        {% for tag in sortedTags %}
+                        <li>
+                            <a class="smoothscroll" href="{{site.baseurl}}/tags#{{ tag | replace: " ","-" }}">#{{ tag }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- End Tags -->
 
             </div>
 
@@ -84,6 +128,11 @@ post_class: post-template
             </div>
             {% endif %}
 
+            <div class="mb-4">
+                {% render_index_map %}
+            </div>
+            
+
             <!-- Post Date -->
             <p>
             <small>
@@ -93,32 +142,6 @@ post_class: post-template
                 {% endif %}
                 </small>
             </p>
-
-            <!-- Post Categories -->
-            <div class="after-post-cats">
-                <ul class="tags mb-4">
-                    {% assign sortedCategories = page.categories | sort %}
-                    {% for category in sortedCategories %}
-                    <li>
-                        <a class="smoothscroll" href="{{site.baseurl}}/categories#{{ category | replace: " ","-" }}">{{ category }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!-- End Categories -->
-
-            <!-- Post Tags -->
-            <div class="after-post-tags">
-                <ul class="tags">
-                    {% assign sortedTags = page.tags | sort %}
-                    {% for tag in sortedTags %}
-                    <li>
-                        <a class="smoothscroll" href="{{site.baseurl}}/tags#{{ tag | replace: " ","-" }}">#{{ tag }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!-- End Tags -->
 
             <!-- Prev/Next -->
             <div class="row PageNavigation d-flex justify-content-between font-weight-bold">

@@ -2,10 +2,11 @@
 layout: post
 title:  "Let's test spoilers"
 author: sal
+organization: holmbergschule
 categories: [ Jekyll, tutorial ]
 image: assets/images/12.jpg
 featured: true
-hidden: true
+hidden: false
 mapping:
     latitude: 51.101
     longitude: 5
