@@ -2,7 +2,10 @@
 
 
 * Go to this directory: https://github.com/HolmbergSchule/CAS.APS/tree/master/_posts
-* Create a new file in that directory
+* Create a new file in that directory with naming `yyyy-mm-dd-title.md`
+
+![](https://github.com/HolmbergSchule/CAS.APS/blob/master/assets/images/add-file.png)
+
 * Use the following template:
 
 ```
